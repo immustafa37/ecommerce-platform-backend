@@ -3,11 +3,13 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 
+app.use(cors()); // Enable CORS
 app.use(express.json());
 
 app.use('/api/products', productRoutes);
